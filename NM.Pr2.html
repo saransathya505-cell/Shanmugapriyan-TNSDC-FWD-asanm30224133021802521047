@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admission Form - Dr.R.K.Shanmugam College</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    h1, h5 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Dr.R.K.Shanmugam College of Arts and Science</h1>
+  <h2>Reg for : Annamalai University</h2>
+  <h5>Indili, Kallakurichi</h5>
+  <h3>Admission Form</h3>
+  <form id="admissionForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name">
+    <div id="nameError" class="error"></div>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob">
+    <div id="dobError" class="error"></div>
+    <label for="email">Email:</label>
+    <input type="email" id="email">
+    <div id="emailError" class="error"></div>
+    <label for="caste">Caste:</label>
+    <select id="caste">
+      <option value="">--Select--</option>
+      <option value="BC">BC</option>
+      <option value="MBC">MBC</option>
+      <option value="SC">SC</option>
+      <option value="ST">ST</option>
+      <option value="STA">STA</option>
+      <option value="BMC">BMC</option>
+      <option value="OC">OC</option>
+      <option value="Other">Other</option>
+    </select>
+    <div id="casteError" class="error"></div>
+    <label for="gender">Gender:</label>
+    <select id="gender">
+      <option value="">--Select--</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <div id="genderError" class="error"></div>
+    <label for="mark11">11th Mark (%):</label>
+    <input type="number" id="mark11" min="0" max="100">
+    <div id="mark11Error" class="error"></div>
+    <label for="mark12">12th Mark (%):</label>
+    <input type="number" id="mark12" min="0" max="100">
+    <div id="mark12Error" class="error"></div>
+    <label for="address">Address:</label>
+    <textarea id="address" rows="3"></textarea>
+    <div id="addressError" class="error"></div>
+    <label for="mobile">Mobile Number:</label>
+    <input type="tel" id="mobile">
+    <div id="mobileError" class="error"></div>
+    <label for="whatsapp">WhatsApp Number:</label>
+    <input type="tel" id="whatsapp">
+    <div id="whatsappError" class="error"></div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<script>
+  function validateForm() {
+    let isValid = true;
+    function showError(id, message) {
+      document.getElementById(id).textContent = message;
+      isValid = false;
+    }
+    function clearErrors() {
+      const errors = document.querySelectorAll('.error');
+      errors.forEach(e => e.textContent = '');
+    }
+    clearErrors();
+    const name = document.getElementById("name").value.trim();
+    const dob = document.getElementById("dob").value;
+    const email = document.getElementById("email").value.trim();
+    const caste = document.getElementById("caste").value;
+    const gender = document.getElementById("gender").value;
+    const mark11 = document.getElementById("mark11").value;
+    const mark12 = document.getElementById("mark12").value;
+    const address = document.getElementById("address").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const whatsapp = document.getElementById("whatsapp").value.trim();
+    if (name === "") showError("nameError", "Name is required.");
+    if (!dob) showError("dobError", "Date of birth is required.");
+    if (email === "" || !/\S+@\S+\.\S+/.test(email)) showError("emailError", "Valid email is required.");
+    if (caste === "") showError("casteError", "Please select caste.");
+    if (gender === "") showError("genderError", "Please select gender.");
+    if (mark11 === "" || mark11 < 0 || mark11 > 100) showError("mark11Error", "Enter valid 11th mark (0–100).");
+    if (mark12 === "" || mark12 < 0 || mark12 > 100) showError("mark12Error", "Enter valid 12th mark (0–100).");
+    if (address === "") showError("addressError", "Address is required.");
+    if (!/^\d{10}$/.test(mobile)) showError("mobileError", "Enter valid 10-digit mobile number.");
+    if (!/^\d{10}$/.test(whatsapp)) showError("whatsappError", "Enter valid 10-digit WhatsApp number.");
+    return isValid;
+  }
+</script>
+</body>
+</html>
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're not receiving notifications from this thread.
+
+Add files via upload · karikalacholan360tamil/https://karikalacholan360tamil.blogspot.com
