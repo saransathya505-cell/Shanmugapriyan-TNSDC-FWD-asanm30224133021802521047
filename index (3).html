@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background: darkred;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+    header h1 {
+      margin: 10px 0 5px;
+    }
+    nav {
+      background: #222;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+    section {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: darkred;
+    }
+    /* Upload Button */
+    #uploadBtn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img id="profilePic" src="https://via.placeholder.com/120" alt="Profile Photo">
+    <input type="file" id="uploadBtn" accept="image/*" onchange="previewPhoto(event)">
+    <h1>SHANMUGAPRIYAN.U</h1>
+    <p>COMPUTER SCIENCE STUDENT</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a <b>cyber security</b> expert and technology enthusiast who is passionate about helping organizations
+      protect their data and create secure online environments. I'm driven by the desire to put technology to
+      work for the greater good and empower individuals and businesses to benefit from the digital revolution.
+      With over 7 years of experience in the field, I'm dedicated to staying up to date with the latest trends
+      and innovations in the <b>cyber security</b> landscape. I'm also committed to helping others learn more
+      about the importance of online security and how to stay safe online.
+    </p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p>B.Sc COMPUTER SCIENCE</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Cyber Security</li>
+      <li>Web Development</li>
+      <li>Networking</li>
+      <li>Programming in C, Java, Python</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Secure Login System</li>
+      <li>Portfolio Website</li>
+      <li>Network Intrusion Detection</li>
+    </ul>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <p><a href="resume.pdf" target="_blank">Download Resume</a></p>
+  </section>
+
+  <script>
+    function previewPhoto(event) {
+      var reader = new FileReader();
+      reader.onload = function(){
+        var output = document.getElementById('profilePic');
+        output.src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+
+</body>
+</html>
